@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../components/components.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,6 +13,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IqSelect2Module } from 'ng2-iq-select2';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { ConfigProvider } from '../providers/config/config';
+
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,7 +39,8 @@ export function createTranslateLoader(http: HttpClient) {
            useFactory: (createTranslateLoader),
            deps: [HttpClient]
          }
-      })
+      }),
+      ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +52,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConfigProvider
   ]
 })
 export class AppModule {}
