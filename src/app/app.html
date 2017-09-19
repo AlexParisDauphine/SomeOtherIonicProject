@@ -1,0 +1,24 @@
+<!--if a let this code here, it works-->
+
+<ion-menu [content]="content" side="left" id="menuParameter">
+    <ion-header>
+        <ion-toolbar color="default">
+            <ion-title>APP</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>   
+
+        <ion-list>            
+            <ion-item>
+                <ion-label>Fr/En</ion-label>
+                <ion-toggle color="danger"[(ngModel)]="isToggled" (ionChange)="notify()"></ion-toggle>
+            </ion-item>
+        </ion-list>              
+    </ion-content>
+</ion-menu>
+
+<!--the same code under using a selector, doesn't work!-->
+<!--<configuration-component ></configuration-component>-->
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
